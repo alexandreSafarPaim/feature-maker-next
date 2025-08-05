@@ -69,7 +69,7 @@ feature-maker-next test-feature
 ## Exemplo
 
 ```bash
-make-feature user-profile
+feature-maker-next user-profile
 ```
 
 Cria:
@@ -77,3 +77,15 @@ Cria:
 - `src/app/user-profile/components/UserProfile.tsx`
 - `src/app/user-profile/components/index.ts`
 - `src/app/user-profile/actions/index.ts`
+
+## CI/CD
+
+Este projeto possui CI/CD automatizado:
+- ✅ Testes automáticos em cada push
+- ✅ Publicação automática no npm com tags
+- ✅ GitHub Releases automático
+
+Para fazer uma release:
+```bash
+npm version patch && git push origin main --tags
+```
