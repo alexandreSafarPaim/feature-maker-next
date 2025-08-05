@@ -9,8 +9,8 @@ jobs:
   release:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
-      id-token: write # for npm provenance
+      contents: write  # Necessário para criar releases
+      id-token: write  # for npm provenance
     
     steps:
     - name: Checkout code
@@ -60,12 +60,10 @@ jobs:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         
     - name: Create GitHub Release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: softprops/action-gh-release@v1
       with:
-        tag_name: ${{ github.ref }}
-        release_name: Release ${{ steps.get_version.outputs.VERSION }}
+        tag_name: v${{ steps.get_version.outputs.VERSION }}
+        name: Release v${{ steps.get_version.outputs.VERSION }}
         body: |
           ## Changes in v${{ steps.get_version.outputs.VERSION }}
           
@@ -79,12 +77,14 @@ jobs:
           npm install -g feature-maker-next@${{ steps.get_version.outputs.VERSION }}
           ```
           
-          ### Usage
+          ### Usage  
           ```bash
           feature-maker-next user-profile
           feature-maker-next admin/users/settings
           ```
           
-          **Full Changelog**: https://github.com/alexandreSafarPaim/feature-maker-next/compare/v${{ steps.get_version.outputs.VERSION }}
+          **Full Changelog**: https://github.com/alexandreSafarPaim/feature-maker-next/releases
         draft: false
         prerelease: false
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
