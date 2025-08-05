@@ -89,3 +89,9 @@ Para fazer uma release:
 ```bash
 npm version patch && git push origin main --tags
 ```
+
+## Changelog
+
+### v1.0.3
+- ✅ CI/CD totalmente configurado e testado
+- ✅ Publicação automática funcionando
