@@ -49,10 +49,13 @@ jobs:
       
     - name: Update package.json version
       run: |
-        npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version
+        echo "Setting version to ${{ steps.get_version.outputs.VERSION }}"
+        npm version ${{ steps.get_version.outputs.VERSION }} --no-git-tag-version --allow-same-version
         
     - name: Publish to npm
-      run: npm publish --provenance --access public
+      run: |
+        echo "Publishing version ${{ steps.get_version.outputs.VERSION }} to npm..."
+        npm publish --access public
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         
