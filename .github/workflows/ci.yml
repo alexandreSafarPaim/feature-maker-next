@@ -1,0 +1,49 @@
+name: CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install dependencies
+      run: npm ci
+      
+    - name: Build project
+      run: npm run build
+      
+    - name: Test CLI functionality
+      run: |
+        # Testar criação de feature simples
+        mkdir -p test-project/src/app
+        cd test-project
+        node ../bin/make-feature.js test-feature
+        
+        # Verificar se os arquivos foram criados
+        test -f src/app/test-feature/components/TestFeature.tsx
+        test -f src/app/test-feature/actions/index.ts
+        test -f src/app/test-feature/'(pages)'/page.tsx
+        
+        # Testar feature aninhada
+        node ../bin/make-feature.js admin/users
+        test -f src/app/admin/users/components/Users.tsx
+        
+        echo "✅ All tests passed!"
