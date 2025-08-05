@@ -92,6 +92,8 @@ npm version patch && git push origin main --tags
 
 ## Changelog
 
-### v1.0.3
+### v1.0.6
 - ✅ CI/CD totalmente configurado e testado
 - ✅ Publicação automática funcionando
+- ✅ GitHub Releases automático
+- ✅ Versionamento sincronizado
