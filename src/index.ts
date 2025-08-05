@@ -7,7 +7,7 @@ const program = new Command();
 program
   .name('feature-maker-next')
   .description('CLI para gerar features no Next.js com estrutura padrão')
-  .version('1.0.2');
+  .version('1.0.3');
 
 program
   .argument('<feature-name>', 'Nome da feature a ser criada')
