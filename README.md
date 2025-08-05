@@ -92,8 +92,9 @@ npm version patch && git push origin main --tags
 
 ## Changelog
 
-### v1.0.6
+### v1.0.7
 - ✅ CI/CD totalmente configurado e testado
 - ✅ Publicação automática funcionando
 - ✅ GitHub Releases automático
 - ✅ Versionamento sincronizado
+- 🐛 Corrigido suporte a parênteses em nomes: `(app)/user`
