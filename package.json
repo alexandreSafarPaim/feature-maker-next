@@ -1,0 +1,40 @@
+{
+  "name": "feature-maker-next",
+  "version": "1.0.0",
+  "description": "CLI para gerar features no Next.js com estrutura padrão",
+  "main": "dist/index.js",
+  "bin": {
+    "make-feature": "./bin/make-feature.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["nextjs", "cli", "generator", "feature", "nextjs-generator", "app-router"],
+  "author": "Seu Nome <seu@email.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/seu-usuario/make-feature.git"
+  },
+  "homepage": "https://github.com/seu-usuario/make-feature#readme",
+  "bugs": {
+    "url": "https://github.com/seu-usuario/make-feature/issues"
+  },
+  "dependencies": {
+    "commander": "^11.0.0",
+    "chalk": "^4.1.2",
+    "fs-extra": "^11.1.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@types/fs-extra": "^11.0.1",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist",
+    "bin",
+    "templates"
+  ]
+}
