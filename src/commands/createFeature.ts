@@ -12,9 +12,9 @@ export async function createFeature(featureName: string): Promise<void> {
   const featurePath = featureName.split('/');
   const actualFeatureName = featurePath[featurePath.length - 1];
   
-  // Normalizar cada parte do caminho
+  // Normalizar cada parte do caminho (preservando parênteses)
   const normalizedPath = featurePath.map(part => 
-    part.toLowerCase().replace(/[^a-z0-9-]/g, '-')
+    part.toLowerCase().replace(/[^a-z0-9-()]/g, '-')
   );
   
   // Caminho completo da feature

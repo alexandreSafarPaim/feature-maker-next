@@ -45,8 +45,8 @@ async function createFeature(featureName) {
     // Separar o caminho e o nome da feature
     const featurePath = featureName.split('/');
     const actualFeatureName = featurePath[featurePath.length - 1];
-    // Normalizar cada parte do caminho
-    const normalizedPath = featurePath.map(part => part.toLowerCase().replace(/[^a-z0-9-]/g, '-'));
+    // Normalizar cada parte do caminho (preservando parênteses)
+    const normalizedPath = featurePath.map(part => part.toLowerCase().replace(/[^a-z0-9-()]/g, '-'));
     // Caminho completo da feature
     const basePath = path.join(process.cwd(), 'src', 'app', ...normalizedPath);
     // Nome normalizado para uso em templates (só o último segmento)
