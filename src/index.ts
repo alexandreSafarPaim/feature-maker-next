@@ -5,7 +5,7 @@ import { createFeature } from './commands/createFeature';
 const program = new Command();
 
 program
-  .name('make-feature')
+  .name('feature-maker-next')
   .description('CLI para gerar features no Next.js com estrutura padrão')
   .version('1.0.0');
 

@@ -4,7 +4,7 @@
   "description": "CLI para gerar features no Next.js com estrutura padrão",
   "main": "dist/index.js",
   "bin": {
-    "make-feature": "./bin/make-feature.js"
+    "feature-maker-next": "./bin/make-feature.js"
   },
   "scripts": {
     "build": "tsc",
@@ -12,15 +12,15 @@
     "prepublishOnly": "npm run build"
   },
   "keywords": ["nextjs", "cli", "generator", "feature", "nextjs-generator", "app-router"],
-  "author": "Seu Nome <seu@email.com>",
+  "author": "Alexandre Safar Paim <alexandresafarpaim@gmail.com>",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/seu-usuario/make-feature.git"
+    "url": "git+https://github.com/alexandreSafarPaim/feature-maker-next.git"
   },
-  "homepage": "https://github.com/seu-usuario/make-feature#readme",
+  "homepage": "https://github.com/alexandreSafarPaim/feature-maker-next#readme",
   "bugs": {
-    "url": "https://github.com/seu-usuario/make-feature/issues"
+    "url": "https://github.com/alexandreSafarPaim/feature-maker-next/issues"
   },
   "dependencies": {
     "commander": "^11.0.0",

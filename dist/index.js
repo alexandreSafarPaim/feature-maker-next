@@ -8,7 +8,7 @@ const chalk_1 = __importDefault(require("chalk"));
 const createFeature_1 = require("./commands/createFeature");
 const program = new commander_1.Command();
 program
-    .name('make-feature')
+    .name('feature-maker-next')
     .description('CLI para gerar features no Next.js com estrutura padrão')
     .version('1.0.0');
 program

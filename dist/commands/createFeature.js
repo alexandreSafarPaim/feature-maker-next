@@ -42,13 +42,18 @@ async function createFeature(featureName) {
     if (!featureName || featureName.trim() === '') {
         throw new Error('Nome da feature é obrigatório');
     }
-    // Normalizar nome da feature (kebab-case)
-    const normalizedName = featureName.toLowerCase().replace(/[^a-z0-9-]/g, '-');
-    // Caminho base da feature
-    const basePath = path.join(process.cwd(), 'src', 'app', normalizedName);
+    // Separar o caminho e o nome da feature
+    const featurePath = featureName.split('/');
+    const actualFeatureName = featurePath[featurePath.length - 1];
+    // Normalizar cada parte do caminho
+    const normalizedPath = featurePath.map(part => part.toLowerCase().replace(/[^a-z0-9-]/g, '-'));
+    // Caminho completo da feature
+    const basePath = path.join(process.cwd(), 'src', 'app', ...normalizedPath);
+    // Nome normalizado para uso em templates (só o último segmento)
+    const normalizedName = normalizedPath[normalizedPath.length - 1];
     // Verificar se já existe
     if (await fs.pathExists(basePath)) {
-        throw new Error(`Feature ${normalizedName} já existe`);
+        throw new Error(`Feature ${featureName} já existe`);
     }
     // Criar estrutura de diretórios
     const directories = [

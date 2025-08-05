@@ -1,24 +1,24 @@
-# Make Feature CLI
+# Feature Maker Next
 
 CLI para gerar features no Next.js com estrutura padrão.
 
 ## Instalação
 
 ```bash
-npm install -g make-feature
+npm install -g feature-maker-next
 ```
 
 Ou instale localmente e use via npx:
 
 ```bash
-npm install make-feature
-npx make-feature nome-da-feature
+npm install feature-maker-next
+npx feature-maker-next nome-da-feature
 ```
 
 ## Uso
 
 ```bash
-make-feature nome-da-feature
+feature-maker-next nome-da-feature
 ```
 
 Isso criará a seguinte estrutura dentro de `src/app/nome-da-feature/`:
@@ -63,7 +63,7 @@ npm run dev
 
 # Testar localmente
 npm link
-make-feature test-feature
+feature-maker-next test-feature
 ```
 
 ## Exemplo
