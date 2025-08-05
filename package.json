@@ -1,6 +1,6 @@
 {
   "name": "feature-maker-next",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI para gerar features no Next.js com estrutura padrão",
   "main": "dist/index.js",
   "bin": {
